@@ -2,11 +2,14 @@ package view;
 
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 import controller.ProcessesFeatures;
 
 public class main {
 
 	public static void main(String[] args) {
+		
 		ProcessesFeatures proc_feat = new ProcessesFeatures();
 		
 		// Pega a primeira letra do SO (se L então linux, se W então windows)
@@ -36,15 +39,17 @@ public class main {
 				break;
 			
 			case 2:
-				System.out.println("Fazendo...");
+				int pid_number = Integer.parseInt(JOptionPane.showInputDialog("Digite aqui o número do PID: "));
+				proc_feat.kill_pid(os, pid_number);
 				break;
 			
 			case 3:
-				System.out.println("Fazendo...");
+				String process_name = JOptionPane.showInputDialog("Digite aqui o nome do processo: ");
+				proc_feat.kill_name(os, process_name);
 				break;
 			
 			case 99:
-				System.out.println("Fazendo...");
+				System.out.println("Finalizando o programa...");
 				break;
 				
 			default:
